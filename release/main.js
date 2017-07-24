@@ -1,4 +1,4 @@
-var projectName = 'kittenbook';
+var projectName = 'MagicBox';
 var versionNumber = '0.0.1';
 var currentDate = new Date();
 
@@ -8,7 +8,6 @@ var currentTime = currentDate.getFullYear() + '-' +
 				currentDate.getHours() + ':' +
 				currentDate.getMinutes() + ':' +
 				currentDate.getSeconds();
-//alert('hello, Fong');
 
 var username = prompt('hello, what\'s your name?');
 document.body.innerHTML = '<h1>hello,' + username + '!</h1>' + 
