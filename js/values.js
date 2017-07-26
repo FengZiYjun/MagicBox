@@ -3,10 +3,14 @@ var mbValues = {
 	projectName : 'MagicBox',
 	versionNumber : '0.0.1',
 	currentDate : new Date(),
-	currentTime : currentDate.getFullYear() + '-' +
-				(currentDate.getMonth() + 1) + '-' + 
-				currentDate.getDate() + 'at' +
-				currentDate.getHours() + ':' +
-				currentDate.getMinutes() + ':' +
-				currentDate.getSeconds()
+	currentTime : ""
 };
+
+//mbValues.currentDate = new Date();
+
+mbValues.currentTime = mbValues.currentDate.getFullYear() + '-' +
+				(mbValues.currentDate.getMonth() + 1) + '-' + 
+				mbValues.currentDate.getDate() + 'at' +
+				mbValues.currentDate.getHours() + ':' +
+				mbValues.currentDate.getMinutes() + ':' +
+				mbValues.currentDate.getSeconds();

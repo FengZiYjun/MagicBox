@@ -3,16 +3,32 @@ var mbValues = {
 	projectName : 'MagicBox',
 	versionNumber : '0.0.1',
 	currentDate : new Date(),
-	currentTime : currentDate.getFullYear() + '-' +
-				(currentDate.getMonth() + 1) + '-' + 
-				currentDate.getDate() + 'at' +
-				currentDate.getHours() + ':' +
-				currentDate.getMinutes() + ':' +
-				currentDate.getSeconds()
+	currentTime : ""
 };
 
+//mbValues.currentDate = new Date();
+
+mbValues.currentTime = mbValues.currentDate.getFullYear() + '-' +
+				(mbValues.currentDate.getMonth() + 1) + '-' + 
+				mbValues.currentDate.getDate() + 'at' +
+				mbValues.currentDate.getHours() + ':' +
+				mbValues.currentDate.getMinutes() + ':' +
+				mbValues.currentDate.getSeconds();
 
 var username = prompt('hello, what\'s your name?');
-document.body.innerHTML = '<h1>hello,' + mbValues.username + '!</h1>' + 
-					'<p>' + mbValues.projectName + ' ' + mbValues.versionNumber + 
-					' account on: ' + mbValues.currentTime + '</p>';
+
+var phoneNum = prompt(username +', what\'s your photo number?');
+
+var phonePattern = /1\d{10}/;
+
+var output = '<h1>hello,' + username + '!</h1>' ;
+
+if (phonePattern.test(phoneNum)) {
+	output = output + 
+			'<p>' + mbValues.projectName + ' ' + mbValues.versionNumber +
+			' account on: ' + mbValues.currentTime + 'phone number: ' + phoneNum+ '</p>';
+}else{
+	output = output + '<h2>invalid photo number: </h2>' + phoneNum;
+}
+
+document.body.innerHTML = output;
