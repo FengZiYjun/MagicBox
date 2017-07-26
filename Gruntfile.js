@@ -3,7 +3,7 @@ module.exports = function(grunt){
 		concat: {
 			// the name of the concat task is 'release' 
 			release: {
-				src: ['js/values.js', 'js/prompt.js', 'getImages.js'], 
+				src: ['js/values.js', 'js/prompt.js', 'js/getImages.js', 'js/event.js'], 
 				dest:'release/main.js'
 			}
 		},
@@ -16,7 +16,7 @@ module.exports = function(grunt){
 		},
 		
 		jshint: {
-			files: ['js/values.js', 'js/prompt.js', 'getImages.js']
+			files: ['js/values.js', 'js/prompt.js', 'js/getImages.js', 'js/event.js']
 		},
 		
 		watch:{
