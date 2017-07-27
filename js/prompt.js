@@ -1,3 +1,8 @@
+
+/**
+ * @method getUserName
+ * @return {string} userName
+ */
 function getUserName(){
 	var username = prompt('hello, what\'s your name?');
 	while(!username){
@@ -6,6 +11,12 @@ function getUserName(){
 	return username;
 }
 
+
+/**
+ * ask the user his/her phone number.
+ * @param  {string} username
+ * @return {string} phoneNum
+ */
 function getPhoneNumber(username){
 	var phoneNum = prompt(username +', what\'s your photo number?');
 	
@@ -15,11 +26,22 @@ function getPhoneNumber(username){
 	return phoneNum;
 }
 
+/**
+* check the validation of the phone number
+* @method
+* @param {string} phoneNum
+* @return {boolean} 
+*/
 function validatePhoneNumber(phoneNum){
 	
 	return phoneNum.match(/13\d{9}/);
 }
 
+/**
+ * get the name of the user location by the phone number.
+ * @param  {string} phoneNum
+ * @return {string} the name of the location
+ */
 function getPhoneLocation(phoneNum) {
 	var locationName;
 

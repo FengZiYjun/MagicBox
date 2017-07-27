@@ -23,7 +23,15 @@ module.exports = function(grunt){
 			// a reference to all files in jshint
 			files: ['<%= jshint.files %>', 'manifest.json'],
 			tasks: ['default']
+		},
+
+		jsdoc: {
+			dist: {
+				src: ['js/*.js'],
+				dest: 'doc'
+			}
 		}
+
 	});		
 	
 
@@ -32,6 +40,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-jsdoc');
 
 	// register a task
 	// run jshint, concat and copy cmd in order

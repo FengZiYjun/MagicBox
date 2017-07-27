@@ -1,4 +1,7 @@
 
+/**
+ * start the program
+ */
 function main(){
 	var userName = getUserName();
 	var phoneNum = getPhoneNumber(userName);

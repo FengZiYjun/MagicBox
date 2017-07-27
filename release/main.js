@@ -1,4 +1,7 @@
-
+/**
+ * An magic box object that stores relevent values.
+ * @type {Object}
+ */
 var mbValues = {
 	projectName : 'MagicBox',
 	versionNumber : '0.0.1',
@@ -24,6 +27,11 @@ mbValues.currentTime = mbValues.currentDate.getFullYear() + '-' +
 				mbValues.currentDate.getSeconds();
 
 				
+
+/**
+ * @method getUserName
+ * @return {string} userName
+ */
 function getUserName(){
 	var username = prompt('hello, what\'s your name?');
 	while(!username){
@@ -32,6 +40,12 @@ function getUserName(){
 	return username;
 }
 
+
+/**
+ * ask the user his/her phone number.
+ * @param  {string} username
+ * @return {string} phoneNum
+ */
 function getPhoneNumber(username){
 	var phoneNum = prompt(username +', what\'s your photo number?');
 	
@@ -41,11 +55,22 @@ function getPhoneNumber(username){
 	return phoneNum;
 }
 
+/**
+* check the validation of the phone number
+* @method
+* @param {string} phoneNum
+* @return {boolean} 
+*/
 function validatePhoneNumber(phoneNum){
 	
 	return phoneNum.match(/13\d{9}/);
 }
 
+/**
+ * get the name of the user location by the phone number.
+ * @param  {string} phoneNum
+ * @return {string} the name of the location
+ */
 function getPhoneLocation(phoneNum) {
 	var locationName;
 
@@ -81,21 +106,35 @@ if (validatePhoneNumber(phoneNum)) {
 
 document.body.innerHTML = output;
 */
-
+/**
+ * @return {object}
+ */
 function getImage(){
 	var images = document.querySelectorAll('#pagelet_ego_pane > div > div > div > div img');
 	return images;
 }
 
 
+/**
+ * @param  {object}
+ * @return {int}
+ */
 function getImageHeight(image){
 	return image.height;
 }
 
+/**
+ * @param  {object}
+ * @return {int}
+ */
 function getImageWidth(image){
 	return image.width;
 }
 
+/**
+ * @param  {object} images
+ * @param  {string} location
+ */
 function replaceImage(images, location){
 	var baseImageURL, height, width, image;
 	switch(location){
@@ -115,6 +154,9 @@ function replaceImage(images, location){
 	}
 }
 
+/**
+ * start the program
+ */
 function main(){
 	var userName = getUserName();
 	var phoneNum = getPhoneNumber(userName);

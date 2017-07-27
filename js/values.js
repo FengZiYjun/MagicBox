@@ -1,4 +1,7 @@
-
+/**
+ * An magic box object that stores relevent values.
+ * @type {Object}
+ */
 var mbValues = {
 	projectName : 'MagicBox',
 	versionNumber : '0.0.1',

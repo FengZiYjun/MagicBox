@@ -1,12 +1,24 @@
 
+/**
+ * @param  {object}
+ * @return {int}
+ */
 function getImageHeight(image){
 	return image.height;
 }
 
+/**
+ * @param  {object}
+ * @return {int}
+ */
 function getImageWidth(image){
 	return image.width;
 }
 
+/**
+ * @param  {object} images
+ * @param  {string} location
+ */
 function replaceImage(images, location){
 	var baseImageURL, height, width, image;
 	switch(location){
