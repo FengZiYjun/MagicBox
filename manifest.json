@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "kittenbook",
-	"description": "Replace photos on Facebook with kittens",
-	"version": "0.0.1",
+	"name": "MagicBox",
+	"description": "Replace photos on Facebook with what you like.",
+	"version": "0.0.2",
 	"content_scripts":[
 		{
 			"matches": ["*://www.facebook.com/*"],
