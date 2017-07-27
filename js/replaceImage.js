@@ -19,7 +19,7 @@ function replaceImage(images, location){
 	}
 
 	for(var i=0, len=images.length; i<len; i++){
-		image = iamges[i];
+		image = images[i];
 		height = getImageHeight(image);
 		width = getImageWidth(image);
 		image.src = baseImageURL + width + '/' + height;

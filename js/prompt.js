@@ -6,8 +6,9 @@ function getUserName(){
 	return username;
 }
 
-function getPhoneNumber(){
+function getPhoneNumber(username){
 	var phoneNum = prompt(username +', what\'s your photo number?');
+	
 	while(!phoneNum){
 		phoneNum = prompt('You didn\'s enter a phone number. Try again.');
 	}
@@ -20,13 +21,19 @@ function validatePhoneNumber(phoneNum){
 }
 
 function getPhoneLocation(phoneNum) {
-	var phonePattern = /(13\d)\d{7}/;
-	var matched = phonePattern.exec(phoneNum);
-	var areaCode = matched[1];
-	var locationName = mbValues.areaCodes[areaCode];
-	if(locationName === undefined){
+	var locationName;
+
+	if(validatePhoneNumber(phoneNum)){
+
+		var phonePattern = /(13\d)\d{7}/;
+		var matched = phonePattern.exec(phoneNum);
+		var areaCode = matched[1];
+		locationName = mbValues.areaCodes[areaCode];
+
+	} else {
 		locationName = 'Somewhere';
 	}
+	
 	return locationName;
 }
 

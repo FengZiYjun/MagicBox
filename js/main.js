@@ -1,7 +1,7 @@
 
 function main(){
-	var userName = getUesrName();
-	var phoneNum = getPhoneNumber();
+	var userName = getUserName();
+	var phoneNum = getPhoneNumber(userName);
 	var location = getPhoneLocation(phoneNum);
 	var images = getImage();
 
