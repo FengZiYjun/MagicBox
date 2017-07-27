@@ -7,7 +7,7 @@ greeting.addEventListener('click', function(){
 	} else {
 		greeting.innerHTML = 'Hello, my bro!';
 	}
-	
+	 
 });
 
 

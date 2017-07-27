@@ -1,16 +1,41 @@
+function getUserName(){
+	var username = prompt('hello, what\'s your name?');
+	while(!username){
+		username = prompt('You didn\'t enter a name. Try again.');
+	}
+	return username;
+}
 
-var username = prompt('hello, what\'s your name?');
+function getPhoneNumber(){
+	var phoneNum = prompt(username +', what\'s your photo number?');
+	while(!phoneNum){
+		phoneNum = prompt('You didn\'s enter a phone number. Try again.');
+	}
+	return phoneNum;
+}
 
-var phoneNum = prompt(username +', what\'s your photo number?');
+function validatePhoneNumber(phoneNum){
+	
+	return phoneNum.match(/13\d{9}/);
+}
 
-var phonePattern = /(13\d)\d{7}/;
-
-var output = '<h1>hello,' + username + '!</h1>' ;
-
-if (phonePattern.test(phoneNum)) {
+function getPhoneLocation(phoneNum) {
+	var phonePattern = /(13\d)\d{7}/;
 	var matched = phonePattern.exec(phoneNum);
 	var areaCode = matched[1];
-	var userLocation = mbValues.areaCodes[areaCode];
+	var locationName = mbValues.areaCodes[areaCode];
+	if(locationName === undefined){
+		locationName = 'Somewhere';
+	}
+	return locationName;
+}
+
+/*
+var output = '<h1>hello,' + username + '!</h1>' ;
+
+if (validatePhoneNumber(phoneNum)) {
+	
+	var userLocation = getPhoneLocation(phoneNum);
 
 	output = output + 
 			'<p>' + mbValues.projectName + ' ' + mbValues.versionNumber + '</br>' +
@@ -22,3 +47,4 @@ if (phonePattern.test(phoneNum)) {
 }
 
 document.body.innerHTML = output;
+*/

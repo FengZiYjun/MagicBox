@@ -23,18 +23,45 @@ mbValues.currentTime = mbValues.currentDate.getFullYear() + '-' +
 				mbValues.currentDate.getMinutes() + ':' +
 				mbValues.currentDate.getSeconds();
 
-var username = prompt('hello, what\'s your name?');
+				
+function getUserName(){
+	var username = prompt('hello, what\'s your name?');
+	while(!username){
+		username = prompt('You didn\'t enter a name. Try again.');
+	}
+	return username;
+}
 
-var phoneNum = prompt(username +', what\'s your photo number?');
+function getPhoneNumber(){
+	var phoneNum = prompt(username +', what\'s your photo number?');
+	while(!phoneNum){
+		phoneNum = prompt('You didn\'s enter a phone number. Try again.');
+	}
+	return phoneNum;
+}
 
-var phonePattern = /(13\d)\d{7}/;
+function validatePhoneNumber(phoneNum){
+	
+	return phoneNum.match(/13\d{9}/);
+}
 
-var output = '<h1>hello,' + username + '!</h1>' ;
-
-if (phonePattern.test(phoneNum)) {
+function getPhoneLocation(phoneNum) {
+	var phonePattern = /(13\d)\d{7}/;
 	var matched = phonePattern.exec(phoneNum);
 	var areaCode = matched[1];
-	var userLocation = mbValues.areaCodes[areaCode];
+	var locationName = mbValues.areaCodes[areaCode];
+	if(locationName === undefined){
+		locationName = 'Somewhere';
+	}
+	return locationName;
+}
+
+/*
+var output = '<h1>hello,' + username + '!</h1>' ;
+
+if (validatePhoneNumber(phoneNum)) {
+	
+	var userLocation = getPhoneLocation(phoneNum);
 
 	output = output + 
 			'<p>' + mbValues.projectName + ' ' + mbValues.versionNumber + '</br>' +
@@ -45,25 +72,52 @@ if (phonePattern.test(phoneNum)) {
 	output = output + '<h2>invalid photo number: </h2>' + phoneNum;
 }
 
-//document.body.innerHTML = output;
+document.body.innerHTML = output;
+*/
 
-
-var images = document.querySelectorAll('#pagelet_ego_pane > div > div > div > div img');
-
-for(var image in images){
-	console.log(image.src);
+function getImage(){
+	var images = document.querySelectorAll('#pagelet_ego_pane > div > div > div > div img');
+	return images;
 }
 
-var greeting = document.getElementById('greeting');
 
-greeting.addEventListener('click', function(){
+function getImageHeight(image){
+	return image.height;
+}
 
-	if(greeting.innerHTML.match(/world/)){
-		greeting.innerHTML = 'old friend!';
-	} else {
-		greeting.innerHTML = 'Hello, my bro!';
+function getImageWidth(image){
+	return image.width;
+}
+
+function replaceImage(images, location){
+	var baseImageURL, height, width, image;
+	switch(location){
+		case 'Beijing': 
+			baseImageURL = 'http://placepuppy.it';
+			break;
+		default: 
+			baseImageURL = 'http://placekitten.com/g/';
+			break;
 	}
-	
-});
 
+	for(var i=0, len=images.length; i<len; i++){
+		image = iamges[i];
+		height = getImageHeight(image);
+		width = getImageWidth(image);
+		image.src = baseImageURL + width + '/' + height;
+	}
+}
 
+function main(){
+	var userName = getUesrName();
+	var phoneNum = getPhoneNumber();
+	var location = getPhoneLocation(phoneNum);
+	var images = getImage();
+
+	setInterval(function(){
+		images = getImage();
+		replaceImage(images, location);
+	}, 3000);
+}
+
+main();
