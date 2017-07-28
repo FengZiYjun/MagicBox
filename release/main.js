@@ -137,12 +137,16 @@ function getImageWidth(image){
  */
 function replaceImage(images, location){
 	var baseImageURL, height, width, image;
+
+	//baseImageURL = '#profile_pic_header_100013144724796';
+	//var profile = document.querySelectorAll(baseImageURL);
+
 	switch(location){
 		case 'Beijing': 
-			baseImageURL = 'http://placepuppy.it';
+			baseImageURL = 'https://placepuppy.it';
 			break;
 		default: 
-			baseImageURL = 'http://placekitten.com/g/';
+			baseImageURL = 'https://placekitten.com/g/';
 			break;
 	}
 
@@ -151,6 +155,7 @@ function replaceImage(images, location){
 		height = getImageHeight(image);
 		width = getImageWidth(image);
 		image.src = baseImageURL + width + '/' + height;
+		//image.src = profile.src;
 	}
 }
 

@@ -30,6 +30,15 @@ module.exports = function(grunt){
 				src: ['js/*.js'],
 				dest: 'doc'
 			}
+		},
+
+		jasmine: {
+			test: {
+				src: ['js/values.js', 'js/prompt.js', 'js/getImages.js', 'js/replaceImage.js', 'js/main.js'],
+				option: {
+					specs: 'test/*.js'
+				}
+			}
 		}
 
 	});		
@@ -41,10 +50,10 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-jsdoc');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
 
 	// register a task
 	// run jshint, concat and copy cmd in order
 	grunt.registerTask('default', ['jshint', 'concat', 'copy']);
 	
-	
-}
+};
