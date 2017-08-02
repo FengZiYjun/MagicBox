@@ -110,10 +110,20 @@ document.body.innerHTML = output;
  * @return {object}
  */
 function getImage(){
-	var images = document.querySelectorAll('#pagelet_ego_pane > div > div > div > div img');
+	var images = document.querySelectorAll('img');
 	return images;
 }
 
+function getProfile(){
+	var node_list = document.querySelectorAll('#u_0_u > div > div._4bl7 > a > div > img');
+	return node_list[0];
+}
+
+function getProfileList(){
+	var list = document.querySelectorAll('#pagelet_ego_pane > div > div > div > div > div.ego_unit_container');
+	var images = list[0].querySelectorAll('img');
+	return images;
+}
 
 /**
  * @param  {object}
@@ -135,26 +145,19 @@ function getImageWidth(image){
  * @param  {object} images
  * @param  {string} location
  */
-function replaceImage(images, location){
-	var baseImageURL, height, width, image;
-
+function replaceImage(images, newImageURL){
+	var height, width;
+	var image;
 	//baseImageURL = '#profile_pic_header_100013144724796';
 	//var profile = document.querySelectorAll(baseImageURL);
 
-	switch(location){
-		case 'Beijing': 
-			baseImageURL = 'https://placepuppy.it';
-			break;
-		default: 
-			baseImageURL = 'https://placekitten.com/g/';
-			break;
-	}
+	//baseImageURL = 'https://placepuppy.it';
 
 	for(var i=0, len=images.length; i<len; i++){
 		image = images[i];
 		height = getImageHeight(image);
 		width = getImageWidth(image);
-		image.src = baseImageURL + width + '/' + height;
+		image.src = newImageURL + "/" + width + "/" + height;
 		//image.src = profile.src;
 	}
 }
@@ -163,15 +166,20 @@ function replaceImage(images, location){
  * start the program
  */
 function main(){
-	var userName = getUserName();
-	var phoneNum = getPhoneNumber(userName);
-	var location = getPhoneLocation(phoneNum);
+	//var userName = getUserName();
+	//var phoneNum = getPhoneNumber(userName);
+	//var location = getPhoneLocation(phoneNum);
 	var images = getImage();
 
 	setInterval(function(){
-		images = getImage();
-		replaceImage(images, location);
+		//images = getImage();
+		var profiles = getProfileList();
+		replaceImage(profiles, "http://placekitten.com/g");
+		var allImages = getImage();
+		replaceImage(allImages, "http://placekitten.com/g");		
 	}, 3000);
+
+		
 }
 
 main();

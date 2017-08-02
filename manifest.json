@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "MagicBox",
-	"description": "Replace photos on Facebook with what you like.",
-	"version": "0.0.2",
+	"name": "CATify",
+	"description": "CAT all images on your Facebook page.",
+	"version": "0.1.0",
 	"content_scripts":[
 		{
 			"matches": ["*://www.facebook.com/*"],
